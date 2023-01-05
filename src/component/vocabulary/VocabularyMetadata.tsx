@@ -15,7 +15,6 @@ import { connect } from "react-redux";
 import { ThunkDispatch } from "../../util/Types";
 import { selectVocabularyTerm } from "../../action/SyncActions";
 import Utils from "../../util/Utils";
-import DocumentSummary from "../resource/document/DocumentSummary";
 import MarkdownView from "../misc/MarkdownView";
 import VocabularySnapshots from "./snapshot/VocabularySnapshots";
 
@@ -33,7 +32,6 @@ interface VocabularyMetadataState {
 
 const TABS = [
   "glossary.title",
-  "type.document",
   "history.label",
   "snapshots.title",
   "changefrequency.label",
@@ -118,18 +116,12 @@ export class VocabularyMetadata extends React.Component<
       />
     );
 
-    tabs[TABS[1]] = (
-      <DocumentSummary
-        document={vocabulary.document}
-        onChange={this.props.onChange}
-      />
-    );
-    tabs[TABS[2]] = <AssetHistory asset={vocabulary} />;
-    tabs[TABS[3]] = <VocabularySnapshots asset={vocabulary} />;
+    tabs[TABS[1]] = <AssetHistory asset={vocabulary} />;
+    tabs[TABS[2]] = <VocabularySnapshots asset={vocabulary} />;
 
-    tabs[TABS[4]] = <TermChangeFrequency vocabulary={vocabulary} />;
+    tabs[TABS[3]] = <TermChangeFrequency vocabulary={vocabulary} />;
 
-    tabs[TABS[5]] = (
+    tabs[TABS[4]] = (
       <UnmappedProperties
         properties={vocabulary.unmappedProperties}
         showInfoOnEmpty={true}

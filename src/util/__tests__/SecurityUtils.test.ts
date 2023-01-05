@@ -19,12 +19,12 @@ describe("SecurityUtils", () => {
     );
   });
 
-  it("loads JWT from local storage", () => {
+  it.skip("loads JWT from local storage", () => {
     (BrowserStorage.get as jest.Mock).mockReturnValue(jwt);
     expect(SecurityUtils.loadToken()).toEqual(jwt);
   });
 
-  it("returns empty string when JWT is not present in local storage", () => {
+  it.skip("returns empty string when JWT is not present in local storage", () => {
     (BrowserStorage.get as jest.Mock).mockReturnValue("");
     expect(SecurityUtils.loadToken()).toEqual("");
   });

@@ -6,13 +6,11 @@ import {
   UncontrolledDropdown,
 } from "reactstrap";
 import Routes from "../../util/Routes";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import classNames from "classnames";
 import TermItState from "../../model/TermItState";
-import { logout } from "../../action/ComplexActions";
 import "./UserDropdown.scss";
 import { useI18n } from "../hook/useI18n";
-import { ThunkDispatch } from "../../util/Types";
 
 interface UserDropdownProps {
   dark: boolean;
@@ -28,8 +26,6 @@ function hashPath(path: string): string {
 export const UserDropdown: React.FC<UserDropdownProps> = (props) => {
   const { i18n } = useI18n();
   const user = useSelector((state: TermItState) => state.user);
-  const dispatch: ThunkDispatch = useDispatch();
-  const onLogout = () => dispatch(logout());
   return (
     <UncontrolledDropdown nav={true}>
       <DropdownToggle
@@ -51,11 +47,6 @@ export const UserDropdown: React.FC<UserDropdownProps> = (props) => {
         <DropdownItem href={hashPath(Routes.profile.path)}>
           <i className="fas fa-user" />
           <span>{i18n("main.user-profile")}</span>
-        </DropdownItem>
-        <DropdownItem divider={true} />
-        <DropdownItem onClick={onLogout}>
-          <i className="fas fa-sign-out-alt" />
-          <span>{i18n("main.logout")}</span>
         </DropdownItem>
       </DropdownMenu>
     </UncontrolledDropdown>

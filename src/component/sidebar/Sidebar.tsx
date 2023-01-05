@@ -44,7 +44,6 @@ import NavbarSearch from "../search/label/NavbarSearch";
 import { toggleSidebar } from "../../action/SyncActions";
 import UserDropdown from "../misc/UserDropdown";
 import "./Sidebar.scss";
-import IfUserIsEditor from "../authorization/IfUserIsEditor";
 
 export interface SidebarProps extends HasI18n, RouteComponentProps<any> {
   user: User;
@@ -86,21 +85,6 @@ const mainNavRoutes: NavLinkRoute[] = [
     name: "main.nav.admin",
     icon: "fas fa-user-shield",
     adminRoute: true,
-  },
-];
-
-const createNewNavRoutes: NavLinkRoute[] = [
-  {
-    path: Routes.createVocabulary.path,
-    name: "main.nav.create-vocabulary",
-    icon: "fas fa-book",
-    supIcon: "fas fa-plus",
-  },
-  {
-    path: Routes.importVocabulary.path,
-    name: "main.nav.import-vocabulary",
-    icon: "fas fa-file-import",
-    supIcon: "fas",
   },
 ];
 
@@ -295,17 +279,6 @@ export class Sidebar extends Component<SidebarProps, SidebarState> {
             <hr className="mb-2 mt-0" />
 
             <Nav navbar={true}>{this.createLinks(mainNavRoutes)}</Nav>
-
-            {desktopView && (
-              <IfUserIsEditor>
-                <div className="d-block">
-                  <hr className="mb-2 mt-2" />
-                  <Nav navbar={true}>
-                    {this.createActionLinks(createNewNavRoutes)}
-                  </Nav>
-                </div>
-              </IfUserIsEditor>
-            )}
           </Collapse>
         </Container>
       </Navbar>

@@ -47,6 +47,6 @@ describe("UserDropdown", () => {
     expect(
       wrapper.find(UncontrolledDropdown).find(DropdownMenu).find(DropdownItem)
         .length
-    ).toBe(3);
+    ).toBe(1);
   });
 });
