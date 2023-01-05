@@ -20,12 +20,17 @@ import VocabularyLink from "./VocabularyLink";
 import AlphaNumSortToggle from "../misc/table/AlphaNumSortToggle";
 import Pagination from "../misc/table/Pagination";
 import { useI18n } from "../hook/useI18n";
+import { isAssetEditable } from "../../util/Authorization";
 
 export const VocabularyList: React.FC = () => {
   const vocabularies = useSelector((state: TermItState) => state.vocabularies);
+  const user = useSelector((state: TermItState) => state.user);
   const { i18n } = useI18n();
   const data = React.useMemo(
-    () => Object.keys(vocabularies).map((v) => vocabularies[v]),
+    () =>
+      Object.keys(vocabularies)
+        .map((v) => vocabularies[v])
+        .filter((value) => isAssetEditable(value, user)),
     [vocabularies]
   );
   const columns: Column<Vocabulary>[] = React.useMemo(
