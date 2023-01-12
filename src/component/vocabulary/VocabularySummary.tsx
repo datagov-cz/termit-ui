@@ -24,7 +24,6 @@ import VocabularyMetadata from "./VocabularyMetadata";
 import Utils from "../../util/Utils";
 import HeaderWithActions from "../misc/HeaderWithActions";
 import CopyIriIcon from "../misc/CopyIriIcon";
-import { FaTrashAlt } from "react-icons/fa";
 import RemoveAssetDialog from "../asset/RemoveAssetDialog";
 import WindowTitle from "../misc/WindowTitle";
 import { importSkosIntoExistingVocabulary } from "../../action/AsyncImportActions";
@@ -183,24 +182,6 @@ export class VocabularySummary extends EditableComponent<
         </IfVocabularyEditAuthorized>
       );
     }
-    buttons.push(
-      <IfVocabularyEditAuthorized
-        key="vocabulary-summary-remove"
-        vocabulary={vocabulary}
-      >
-        <Button
-          id="vocabulary-summary-remove"
-          key="vocabulary.summary.remove"
-          size="sm"
-          color="outline-danger"
-          title={i18n("asset.remove.tooltip")}
-          onClick={this.onRemoveClick}
-        >
-          <FaTrashAlt />
-          &nbsp;{i18n("remove")}
-        </Button>
-      </IfVocabularyEditAuthorized>
-    );
     buttons.push(
       <VocabularyActions
         key="vocabulary-summary-actions"
