@@ -29,6 +29,10 @@ const VocabularyActions: React.FC<VocabularyActionsProps> = ({
 }) => {
   const { i18n } = useI18n();
 
+  //Returns null only because it is not currently supported by the KODI architecture
+  //We will return it when the back-end is ready
+  // TODO: return when ready
+  return null;
   return (
     <UncontrolledButtonDropdown className="ml-1">
       <DropdownToggle

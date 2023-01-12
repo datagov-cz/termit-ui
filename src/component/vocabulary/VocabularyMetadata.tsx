@@ -16,7 +16,6 @@ import { ThunkDispatch } from "../../util/Types";
 import { selectVocabularyTerm } from "../../action/SyncActions";
 import Utils from "../../util/Utils";
 import MarkdownView from "../misc/MarkdownView";
-import VocabularySnapshots from "./snapshot/VocabularySnapshots";
 
 interface VocabularyMetadataProps extends HasI18n {
   vocabulary: Vocabulary;
@@ -117,7 +116,8 @@ export class VocabularyMetadata extends React.Component<
     );
 
     tabs[TABS[1]] = <AssetHistory asset={vocabulary} />;
-    tabs[TABS[2]] = <VocabularySnapshots asset={vocabulary} />;
+    // TODO: return when ready
+    //tabs[TABS[2]] = <VocabularySnapshots asset={vocabulary} />;
 
     tabs[TABS[3]] = <TermChangeFrequency vocabulary={vocabulary} />;
 
