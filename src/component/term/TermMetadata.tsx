@@ -15,7 +15,7 @@ import ValidationResults from "./validation/ValidationResults";
 import Comments from "../comment/Comments";
 import UnmappedProperties from "../genericmetadata/UnmappedProperties";
 import "./TermMetadata.scss";
-import TermSnapshots from "./snapshot/TermSnapshots";
+//import TermSnapshots from "./snapshot/TermSnapshots";
 
 interface TermMetadataProps extends HasI18n, RouteComponentProps<any> {
   term: Term;
@@ -184,7 +184,9 @@ export class TermMetadata extends React.Component<
     tabs["term.metadata.validation.title"] = <ValidationResults term={term} />;
     if (!term.isSnapshot()) {
       tabs["history.label"] = <AssetHistory asset={term} />;
-      tabs["snapshots.title"] = <TermSnapshots asset={term} />;
+      // We will return this, when the back-end is ready
+      // TODO: return when ready
+      // tabs["snapshots.title"] = <TermSnapshots asset={term} />;
     }
     return tabs;
   }
