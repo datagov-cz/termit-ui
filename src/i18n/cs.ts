@@ -30,8 +30,12 @@ const cs = {
       "Akce selhala. Server odpověděl neznámou chybou. Více informací lze nalézt v konzoli prohlížeče.",
     "ajax.failed": "Nepodařilo se načíst data ze serveru.",
 
-    "footer.copyright": "KBSS FEL ČVUT v Praze",
+    "footer.copyright.kbss": "KBSS FEL ČVUT v Praze",
+    "footer.copyright.mvcr": "MVČR",
+    "footer.copyright.mvcr.tooltip": "Ministerstvo vnitra České republiky",
     "footer.version": "Verze",
+    "footer.grant.text":
+      "Tato aplikace je vyvíjena a udržována v rámci projektu OPZ č. CZ.03.4.74/0.0/0.0/15_025/0013983.",
 
     "news-viewer.title": "Novinky",
 
