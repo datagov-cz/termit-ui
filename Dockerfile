@@ -22,7 +22,7 @@ RUN set -ex; \
 
 # RELEASE STAGE
 # Only include the static files in the final image
-FROM docker.pkg.github.com/opendata-mvcr/react-nginx/react-nginx:latest
+FROM ghcr.io/datagov-cz/react-nginx/react-nginx:latest
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 RUN chmod a+r -R /usr/share/nginx/html
 RUN chmod ag+x /usr/share/nginx/html/flags
