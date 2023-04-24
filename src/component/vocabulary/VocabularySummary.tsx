@@ -13,7 +13,7 @@ import {
   validateVocabulary,
 } from "../../action/AsyncActions";
 import { Button } from "reactstrap";
-import { GoPencil } from "react-icons/go";
+import { GoCloudDownload, GoPencil } from "react-icons/go";
 import VocabularyUtils, { IRI } from "../../util/VocabularyUtils";
 import { ThunkDispatch } from "../../util/Types";
 import EditableComponent, {
@@ -178,6 +178,24 @@ export class VocabularySummary extends EditableComponent<
           >
             <GoPencil />
             &nbsp;{i18n("edit")}
+          </Button>
+        </IfVocabularyEditAuthorized>
+      );
+      buttons.push(
+        <IfVocabularyEditAuthorized
+          key="vocabulary-summary-edit"
+          vocabulary={vocabulary}
+        >
+          <Button
+            id="vocabulary-export"
+            key="vocabulary-export"
+            size="sm"
+            color="primary"
+            title={i18n("vocabulary.summary.export.title")}
+            onClick={this.onExportToggle}
+          >
+            <GoCloudDownload className="mr-1" />
+            {i18n("vocabulary.summary.export.text")}
           </Button>
         </IfVocabularyEditAuthorized>
       );

@@ -12,6 +12,7 @@ import { MemoryRouter } from "react-router";
 jest.mock("../../../util/Routing");
 jest.mock("../../../util/Ajax");
 jest.mock("../../../util/SecurityUtils");
+jest.mock("../../../component/footer/Footer", () => () => <span>footer</span>);
 
 describe("Registration", () => {
   let register: ({}) => Promise<AsyncFailureAction>;
