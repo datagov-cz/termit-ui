@@ -13,7 +13,7 @@ import * as Constants from "../../../util/Constants";
 import ConfigParam from "../../../util/ConfigParam";
 
 jest.mock("../../../util/Routing");
-
+jest.mock("../../../component/footer/Footer", () => () => <span>footer</span>);
 describe("Login", () => {
   let login: (
     username: string,
