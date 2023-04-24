@@ -182,22 +182,17 @@ export class VocabularySummary extends EditableComponent<
         </IfVocabularyEditAuthorized>
       );
       buttons.push(
-        <IfVocabularyEditAuthorized
-          key="vocabulary-summary-edit"
-          vocabulary={vocabulary}
+        <Button
+          id="vocabulary-export"
+          key="vocabulary-export"
+          size="sm"
+          color="primary"
+          title={i18n("vocabulary.summary.export.title")}
+          onClick={this.onExportToggle}
         >
-          <Button
-            id="vocabulary-export"
-            key="vocabulary-export"
-            size="sm"
-            color="primary"
-            title={i18n("vocabulary.summary.export.title")}
-            onClick={this.onExportToggle}
-          >
-            <GoCloudDownload className="mr-1" />
-            {i18n("vocabulary.summary.export.text")}
-          </Button>
-        </IfVocabularyEditAuthorized>
+          <GoCloudDownload className="mr-1" />
+          {i18n("vocabulary.summary.export.text")}
+        </Button>
       );
     }
     buttons.push(
