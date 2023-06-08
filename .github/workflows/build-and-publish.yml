@@ -1,4 +1,4 @@
-name: Docker
+name: Publish Docker Image
 
 on:
   push:
@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 env:
-  # TODO: Change variable to your image's name.
   IMAGE_NAME: al-termit
+  AL_DEV_URL: ${{ vars.AL_DEV_URL }}    # e.g. https://xn--slovnk-test-scb.dia.gov.cz/modelujeme
 
 jobs:
   # Push image to GitHub Packages.
@@ -59,4 +59,4 @@ jobs:
         uses: wei/curl@v1.1.1
         with:
           args: |
-            -H \"X-Secret: ${{ secrets.AL_DEV_SECRET }}\" -X POST https://xn--slovnk-test-scb.mvcr.gov.cz/modelujeme/update/${{ env.IMAGE_NAME }}.php
+            -H \"X-Secret: ${{ secrets.AL_DEV_SECRET }}\" -X POST ${{ env.AL_DEV_URL }}/update/${{ env.IMAGE_NAME }}.php
