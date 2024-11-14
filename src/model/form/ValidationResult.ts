@@ -1,7 +1,6 @@
-import OntoValidationResult from "../ValidationResult";
-import Utils from "../../util/Utils";
 import { getShortLocale } from "../../util/IntlUtil";
-import Validation from "../../util/Validation";
+import Utils from "../../util/Utils";
+import OntoValidationResult from "../ValidationResult";
 
 export enum Severity {
   BLOCKER, // Blocker severity indicates the form cannot be submitted and the input should have an error boundary
@@ -42,7 +41,8 @@ export default class ValidationResult {
     locale: string
   ) {
     return new ValidationResult(
-      Validation.toSeverity(result.sourceShape.iri),
+      Severity.WARNING,
+      // Validation.toSeverity(result.sourceShape.iri),
       Utils.sanitizeArray(result.message).find(
         (ls) => ls.language === getShortLocale(locale)
       )?.value
